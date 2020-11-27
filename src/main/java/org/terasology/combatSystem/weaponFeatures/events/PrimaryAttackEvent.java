@@ -10,7 +10,7 @@ import org.terasology.math.geom.Vector3f;
 /**
  * Triggered in case of a primary attack
  */
-public class PrimaryAttackEvent implements Event{
+public class PrimaryAttackEvent implements Event {
     private EntityRef instigator;
     private EntityRef target;
     private Vector3f origin;
@@ -22,7 +22,7 @@ public class PrimaryAttackEvent implements Event{
     /**
      * Default constructor required for persistence
      */
-    public PrimaryAttackEvent(){
+    public PrimaryAttackEvent() {
 
     }
 
@@ -31,7 +31,7 @@ public class PrimaryAttackEvent implements Event{
      * Creates an event based on an ActivateEvent.
      * @param info The ActivateEvent to base this event off of.
      */
-    public PrimaryAttackEvent(ActivateEvent info){
+    public PrimaryAttackEvent(ActivateEvent info) {
         instigator = info.getInstigator();
         target = info.getTarget();
         origin = JomlUtil.from(info.getOrigin());
@@ -41,6 +41,19 @@ public class PrimaryAttackEvent implements Event{
         activationId = info.getActivationId();
     }
 
+    /**
+     * Creates an event from known information
+     * @param instigator The attacking Entity
+     * @param target The target Entity
+     * @param origin The attacking entity's postion
+     * @param direction The look direction from instigator to the target
+     */
+    public PrimaryAttackEvent(EntityRef instigator, EntityRef target, Vector3f origin, Vector3f direction) {
+        this.instigator = instigator;
+        this.target = target;
+        this.origin = origin;
+        this.direction = direction;
+    }
 
     /**
      * Gets the instigator of this event.

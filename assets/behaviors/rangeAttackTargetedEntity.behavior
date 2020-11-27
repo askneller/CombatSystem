@@ -1,0 +1,26 @@
+{
+  sequence: [
+    {
+      dynamic: [
+        {
+          sequence: [
+            { check_target_stop: { maxDistance: 10}},
+            look_at
+          ]
+        },
+        {
+          sequence: [
+            {
+              animation: {
+                play: "engine:Stand.animationPool",
+                loop: "engine:Stand.animationPool"
+              }
+            },
+            primary_attack,
+            {sleep: {time: 0.3}}
+          ]
+        }
+      ]
+    }
+  ]
+}
